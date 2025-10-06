@@ -1,6 +1,10 @@
 ﻿@model List<Pokemon>
 @{
     ViewData["Title"] = "Home Page";
+    string backgroundColor(string cor)
+    {
+        return cor.Replace("1)", "0.75)");
+    }
 }
 
 <div class="pt-5 container">
@@ -56,7 +60,7 @@
         {
             <!-- Card Pokemon - Inicio -->
             <div class="col">
-                <a href="#" class="text-decoration-none">
+                <a asp-action="Details" asp-route-id="@pokemon.Numero" class="text-decoration-none">
                     <div class="card" style="background-color: @pokemon.Tipos[0].Tipo.Cor">
                         <img src="@pokemon.Imagem" class="card-img-top" alt="@pokemon.Nome" />
                         <div class="card-body">
